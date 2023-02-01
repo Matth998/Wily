@@ -1,0 +1,129 @@
+.bg-vagalumes {
+
+  background: rgb(31, 31, 31);
+  background: linear-gradient(87deg, rgba(31, 31, 31, 1) 0%, rgba(20, 20, 20, 1) 100%);
+  box-shadow: 0 8px 32px 0 rgba(20, 20, 20, 0.37);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  min-height: 900px;
+
+}
+
+//Glitch
+
+#wrapper {
+  text-align: center;
+}
+
+.sub {
+  color: #000000;
+  letter-spacing: 1em;
+}
+
+@mixin glitchCopy {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch {
+  position: relative;
+  color: #fff;
+  font-size: 3.5em;
+  letter-spacing: 0.5em;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+
+  &::before {
+    @include glitchCopy;
+    left: 2px;
+    text-shadow: -2px 0 #000;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    @include glitchCopy;
+    left: -2px;
+    text-shadow: -2px 0 #000, 2px 2px #000;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes glitch-anim {
+  $steps: 20;
+
+  @for $i from 0 to $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+@keyframes glitch-anim2 {
+  $steps: 20;
+
+  @for $i from 0 to $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+@keyframes glitch-skew {
+  $steps: 10;
+
+  @for $i from 0 to $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
+}
+
+.gallery {
+  --z: 32px;
+  /* control the zig-zag  */
+  --s: 360px;
+  /* control the size */
+  --g: 8px;
+  /* control the gap */
+
+  display: grid;
+  gap: var(--g);
+  width: calc(2*var(--s) + var(--g));
+  grid-auto-flow: column;
+}
+
+.gallery>img {
+  width: 0;
+  min-width: calc(100% + var(--z)/2);
+  height: var(--s);
+  object-fit: cover;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.gallery>img:hover {
+  width: calc(var(--s)/2);
+}
+
+.gallery>img:first-child {
+  place-self: start;
+  clip-path: polygon(calc(2*var(--z)) 0, 100% 0, 100% 100%, 0 100%);
+  --mask:
+    conic-gradient(from -135deg at right, #0000, #000 1deg 89deg, #0000 90deg) 50%/100% calc(2*var(--z)) repeat-y;
+}
+
+.gallery>img:last-child {
+  place-self: end;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 2*var(--z)) 100%, 0 100%);
+  --mask:
+    conic-gradient(from 45deg at left, #0000, #000 1deg 89deg, #0000 90deg) 50% calc(50% - var(--z))/100% calc(2*var(--z)) repeat-y;
+}

@@ -1,0 +1,63 @@
+.footer {
+
+    background: #000000;
+
+}
+
+ul.social-network {
+
+    list-style: none;
+    padding: 0;
+
+}
+
+ul.social-network li {
+
+    display: inline;
+    margin: 0;
+    padding: 5px;
+
+}
+
+.icons {
+
+    color: #fff;
+
+}
+
+.bi-linkedin:hover {
+
+    color: #0e76a8;
+
+}
+
+.bi-instagram:hover {
+
+    color: #E1306C;
+
+}
+
+.bi-github:hover {
+
+    color: #888888;
+
+}
+
+.footer-copyright {
+
+    font-family: 'Eczar', serif;
+    font-size: 16pt;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px 0;
+
+}
+
+.bg-black {
+
+    background: rgb(205, 205, 205);
+    background: linear-gradient(87deg, rgba(205, 205, 205, 1) 0%, rgba(179, 179, 179, 1) 100%);
+    box-shadow: 0 8px 32px 0 rgba(179, 179, 179, 0.37);
+    backdrop-filter: blur(15.5px);
+    -webkit-backdrop-filter: blur(15.5px);
+}

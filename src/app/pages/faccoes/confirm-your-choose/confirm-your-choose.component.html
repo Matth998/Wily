@@ -1,0 +1,44 @@
+<div class="container-fluid bg-choose">
+  <div class="container">
+    <div class="row pt-5">
+      <div class="col-md-12">
+
+        <div id="wrapper">
+          <h1 class="glitch" data-text="Suas Escolhas">Suas Escolhas</h1>
+        </div>
+
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-4">
+        <hr>
+        <div class="profile-card"><img src="{{logo}}" class="img img-responsive" width="350" height="500">
+          <div class="profile-name" [ngStyle]="{'color': color}">{{type}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <hr>
+        <div class="profile-card"><img src="{{photo}}" class="img img-responsive" width="350" height="500">
+          <div class="profile-name">{{personagem}}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row d-flex justify-content-center mt-5">
+
+      <div class="col-md-3">
+
+        <button class="button" routerLink="/feed" (click)="clicou()">
+          Confirmar
+          <div class="button__horizontal"></div>
+          <div class="button__vertical"></div>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
